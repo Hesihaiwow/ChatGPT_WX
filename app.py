@@ -22,7 +22,7 @@ def chat():
     if apikey is None:
         apikey = os.environ.get("OPENAI_API_KEY",app.config["OPENAI_API_KEY"])
 
-    messages = f'[{{"role": "user", "content": "{messages}"}}]'
+    messages = json.loads(f'[{{"role": "user", "content": "{messages}"}}]')
 
     headers = {
         "Content-Type": "application/json",
